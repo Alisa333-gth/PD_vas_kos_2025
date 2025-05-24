@@ -5,8 +5,6 @@
 1. Статический веб-сайт, посвящённый цели проектной деятельности по направлению "Автоматизация внутренних бизнеспроцессов университета".
 2. Телеграм-бот, реализующий игру "Быки и коровы".
 
----
-
 ## Часть 1: Создание статического веб-сайта по проектной практике
 
 ### Описание
@@ -22,8 +20,6 @@
 ### Ссылки на ресурсы
 - [HTML Tutorial](https://developer.mozilla.org/en-US/docs/Learn/Getting_started_with_the_web/HTML_basics)
 - [CSS Tutorial](https://developer.mozilla.org/en-US/docs/Learn/Getting_started_with_the_web/CSS_basics)
-
----
 
 ## Часть 2: Создание телеграмм бота
 
