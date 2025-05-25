@@ -90,7 +90,7 @@ main section {
 .hero {
     text-align: center;
     padding: 8rem 10rem !important;
-    background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('images/home.jpg') center/cover;
+
     color: white;
     margin: var(--section-padding) auto !important;
 }
