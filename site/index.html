@@ -4,14 +4,385 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Дополнительное образование - Главная</title>
-    <link rel="stylesheet" href="style.css">
+    <style>
+        /* style.css */
+        :root {
+            --primary-color: #1e1e1e;
+            --accent-color: #e63246;
+            --light-gray: #F5F6F7;
+            --text-color: #1e1e1e;
+            --border-radius: 20px;
+            --section-padding: 2rem;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            line-height: 1.6;
+            color: var(--text-color);
+            background: linear-gradient(135deg, #eeeeee 0%, #f8f9fa 100%);
+            overflow-x: hidden;
+        }
+
+        /* Навигация с анимацией */
+        nav {
+            background: var(--primary-color);
+            padding: 1rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            backdrop-filter: blur(10px);
+            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+        }
+
+        nav .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        nav img {
+            transition: transform 0.3s ease;
+        }
+
+        nav img:hover {
+            transform: scale(1.05);
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            transition: color 0.3s;
+            font-size: 1.1rem;
+        }
+
+        nav a:hover {
+            color: var(--accent-color);
+        }
+
+        /* Контейнер */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Секции с улучшенными тенями */
+        main section {
+            margin: var(--section-padding) 0;
+            padding: var(--section-padding);
+            background: var(--light-gray);
+            border-radius: var(--border-radius);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        main section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: linear-gradient(90deg, var(--accent-color), #ff6b7a);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        main section:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.12);
+        }
+
+        main section:hover::before {
+            opacity: 1;
+        }
+
+        /* Герой-секция с анимацией */
+        .hero {
+            text-align: center;
+            padding: 8rem 10rem !important;
+            background: linear-gradient(135deg, rgba(0,0,0,0.6), rgba(30,30,30,0.4)), 
+                        linear-gradient(45deg, #1e1e1e, #2a2a2a);
+            color: white;
+            margin: var(--section-padding) auto !important;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(230, 50, 70, 0.1) 0%, transparent 70%);
+            animation: heroGlow 6s ease-in-out infinite alternate;
+        }
+
+        @keyframes heroGlow {
+            0% { transform: rotate(0deg) scale(1); }
+            100% { transform: rotate(10deg) scale(1.1); }
+        }
+
+        .hero h1 {
+            font-size: 2.8rem;
+            margin-bottom: 1.5rem;
+            text-shadow: 2px 2px 8px rgba(0,0,0,0.3);
+            position: relative;
+            z-index: 2;
+            animation: slideInUp 1s ease-out;
+        }
+
+        .hero h3 {
+            font-weight: 400;
+            font-size: 1.8rem;
+            position: relative;
+            z-index: 2;
+            animation: slideInUp 1s ease-out 0.2s both;
+            opacity: 0.95;
+        }
+
+        @keyframes slideInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Улучшенные квадратные блоки */
+        .two-columns {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 2rem;
+            margin: var(--section-padding) 0;
+        }
+
+        .square-block {
+            background: var(--light-gray);
+            border-radius: var(--border-radius);
+            padding: 2.5rem;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.06);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            transition: all 0.4s ease;
+            position: relative;
+            overflow: hidden;
+            border: 1px solid rgba(230, 50, 70, 0.1);
+        }
+
+        .square-block::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(230, 50, 70, 0.05), transparent);
+            transition: left 0.6s ease;
+        }
+
+        .square-block:hover {
+            transform: translateY(-8px) scale(1.02);
+            box-shadow: 0 15px 35px rgba(0,0,0,0.12);
+            border-color: rgba(230, 50, 70, 0.2);
+        }
+
+        .square-block:hover::before {
+            left: 100%;
+        }
+
+        .square-block h2 {
+            color: var(--accent-color);
+            margin-bottom: 1rem;
+            font-size: 1.4rem;
+            transition: all 0.3s ease;
+        }
+
+        .square-block:hover h2 {
+            transform: translateX(5px);
+        }
+
+        .square-block p {
+            transition: all 0.3s ease;
+            line-height: 1.7;
+        }
+
+        .square-block:hover p {
+            color: #333;
+        }
+
+        .square-block a {
+            color: var(--accent-color);
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .square-block a::after {
+            content: '→';
+            opacity: 0;
+            transform: translateX(-10px);
+            transition: all 0.3s ease;
+            margin-left: 5px;
+        }
+
+        .square-block a:hover::after {
+            opacity: 1;
+            transform: translateX(0);
+        }
+
+        /* Улучшенные преимущества */
+        .benefits-section {
+            background: linear-gradient(135deg, var(--light-gray), #ffffff) !important;
+        }
+
+        .benefits-section h2 {
+            color: var(--accent-color);
+            margin-bottom: 2rem;
+            font-size: 1.8rem;
+            text-align: center;
+            position: relative;
+        }
+
+        .benefits-section h2::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 60px;
+            height: 3px;
+            background: linear-gradient(90deg, var(--accent-color), #ff6b7a);
+            border-radius: 2px;
+        }
+
+        .benefits-section p {
+            font-size: 1.3rem;
+            margin: 2rem 0;
+            padding: 1.5rem 2rem 1.5rem 4rem;
+            position: relative;
+            background: rgba(255,255,255,0.5);
+            border-radius: 12px;
+            transition: all 0.3s ease;
+            border-left: 4px solid transparent;
+        }
+
+        .benefits-section p:hover {
+            transform: translateX(10px);
+            border-left-color: var(--accent-color);
+            background: rgba(255,255,255,0.8);
+        }
+
+        .benefits-section p::before {
+            content: '✓';
+            color: var(--accent-color);
+            position: absolute;
+            left: 1rem;
+            font-size: 1.8rem;
+            top: 50%;
+            transform: translateY(-50%);
+            font-weight: bold;
+            text-shadow: 0 2px 4px rgba(230, 50, 70, 0.3);
+        }
+
+        /* Анимация появления элементов */
+        .animate-on-scroll {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.6s ease;
+        }
+
+        .animate-on-scroll.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Адаптивность */
+        @media (max-width: 768px) {
+            nav .container {
+                flex-direction: column;
+                gap: 1rem;
+            }
+
+            .two-columns {
+                grid-template-columns: 1fr;
+            }
+
+            .hero {
+                padding: 4rem 1rem !important;
+            }
+
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .hero h3 {
+                font-size: 1.3rem;
+            }
+
+            main section {
+                margin: 1.5rem 0;
+                padding: 1.5rem;
+            }
+
+            .square-block {
+                padding: 2rem;
+            }
+
+            .benefits-section p {
+                padding: 1rem 1.5rem 1rem 3rem;
+                margin: 1.5rem 0;
+            }
+        }
+
+        /* Дополнительные декоративные элементы */
+        .container::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: 
+                radial-gradient(circle at 20% 50%, rgba(230, 50, 70, 0.03) 0%, transparent 50%),
+                radial-gradient(circle at 80% 20%, rgba(30, 30, 30, 0.02) 0%, transparent 50%);
+            pointer-events: none;
+            z-index: -1;
+        }
+    </style>
 </head>
 <body>
     <nav>
         <div class="container">
             <a href="index.html">
-                <img src="images/mospolytech_logo_edited_white.png" height="70" alt="Логотип">
-            </a>
+			  <img src="images/mospolytech_logo_edited_white.png"  height="70">
+			</a>
+
             <ul>
                 <li><a href="index.html">Главная</a></li>
                 <li><a href="about.html">О проекте</a></li>
@@ -24,35 +395,77 @@
 
     <main class="container">
         <!-- Герой -->
-        <section class="hero">
+        <section class="hero hero-home">
             <h1>Дополнительное образование на базе Московского Политеха</h1>
             <h3>Автоматическая запись на курсы ДПО Мосполитеха — быстро, удобно, надежно</h3>
         </section>
 
         <!-- Аннотация -->
-       <section class="container">
-			<div class="two-columns">
-				<!-- Первый квадрат -->
-				<div class="square-block">
-					<h2>Почему выбирают нас?</h2>
-                    <p>Московский Политех предлагает современные программы дополнительного образования, разработанные совместно с индустриальными партнерами. Обучение проходит в очной, очно-заочной, заочной форме с применением дистанционных образовательных технологий</p>
-				</div>
-				
-				<!-- Второй квадрат -->
-				<div class="square-block">
-					<h2>О нашем проекте</h2>
-                    <p>Наша команда создает сервис для удобной регистрации и приобретения курсов <a href="about.html">Подробнее...</a></p>
-				</div>
-			</div>
-		</section>
+        <div class="two-columns animate-on-scroll">
+            <!-- Первый квадрат -->
+            <div class="square-block">
+                <h2>Почему выбирают нас?</h2>
+                <p>Московский Политех предлагает современные программы дополнительного образования, разработанные совместно с индустриальными партнерами. Обучение проходит в очной, очно-заочной, заочной форме с применением дистанционных образовательных технологий</p>
+            </div>
+            
+            <!-- Второй квадрат -->
+            <div class="square-block">
+                <h2>О нашем проекте</h2>
+                <p>Наша команда создает сервис для удобной регистрации и приобретения курсов <a href="about.html">Подробнее...</a></p>
+            </div>
+        </div>
 
         <!-- Преимущества -->
-        <section class="benefits-section">
+        <section class="benefits-section animate-on-scroll">
             <h2>Мы создаем пространство, где:</h2>
             <p>Регистрация займет всего пару минут</p>
             <p>Все курсы — в одном месте — от IT до дизайна, от менеджмента до инженерии</p>
             <p>Доступно 24/7 — планируйте обучение в удобное для вас время</p>
         </section>
     </main>
+
+    <script>
+        // Анимация появления элементов при скролле
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+
+        // Наблюдаем за всеми элементами с классом animate-on-scroll
+        document.querySelectorAll('.animate-on-scroll').forEach(el => {
+            observer.observe(el);
+        });
+
+        // Плавный скролл для навигации
+        document.querySelectorAll('nav a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Эффект параллакса для героя
+        window.addEventListener('scroll', () => {
+            const scrolled = window.pageYOffset;
+            const hero = document.querySelector('.hero');
+            if (hero && scrolled < hero.offsetHeight) {
+                hero.style.transform = `translateY(${scrolled * 0.3}px)`;
+            }
+        });
+    </script>
 </body>
 </html>

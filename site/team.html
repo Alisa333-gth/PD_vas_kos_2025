@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Дополнительное образование - Участники</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <nav>
+        <div class="container">
+            <a href="index.html">
+                <img src="images/mospolytech_logo_edited_white.png" height="70" alt="Логотип">
+            </a>
+            <ul>
+                <li><a href="index.html">Главная</a></li>
+                <li><a href="about.html">О проекте</a></li>
+                <li><a href="team.html">Участники</a></li>
+                <li><a href="blog.html">Журнал</a></li>
+                <li><a href="resources.html">Ресурсы</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <main class="container">
+        <section class="hero hero-team">
+            <h1>Наша команда</h1>
+        </section>
+
+        <div class="team-grid">
+            <div class="team-member">
+                <div class="member-photo">
+                    <div class="photo-placeholder">МК</div>
+                </div>
+                <h3>Мария Костромина</h3>
+                <p class="role">Участник команды PR</p>
+                <p>Помощник по написанию постов, создатель иллюстраций для канала, дизайнер</p>
+            </div>
+
+            <div class="team-member">
+                <div class="member-photo">
+                    <div class="photo-placeholder">АВ</div>
+                </div>
+                <h3>Алиса Васильева</h3>
+                <p class="role">Тимлид команды</p>
+                <p>Лидер команды, автор постов</p>
+            </div>
+
+            <div class="team-member">
+                <div class="member-photo">
+                    <div class="photo-placeholder">ИЕ</div>
+                </div>
+                <h3>Иван Ермошкин</h3>
+                <p class="role">Участник команды PR</p>
+                <p>Работал над монтажом видео</p>
+            </div>
+
+        </div>
+
+        <section class="team-values">
+            <h2>Наши ценности</h2>
+            <div class="values-grid">
+                <div class="value-item">
+                    <h3>Доступность</h3>
+                    <p>Мы делаем образование доступным для каждого, независимо от местоположения и обстоятельств</p>
+                </div>
+                <div class="value-item">
+                    <h3>Качество</h3>
+                    <p>Высокие стандарты во всем — от технических решений до пользовательского опыта</p>
+                </div>
+                <div class="value-item">
+                    <h3>Инновации</h3>
+                    <p>Используем передовые технологии для создания современных образовательных решений</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <style>
+		.hero-team {
+			background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('images/team.jpg') center/cover !important;
+		}
+	
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin: 2rem 0;
+        }
+
+        .team-member {
+            background: var(--light-gray);
+            border-radius: var(--border-radius);
+            padding: 2rem;
+            text-align: center;
+            box-shadow: 0 2px 15px rgba(0,0,0,0.1);
+            transition: transform 0.3s;
+        }
+
+        .team-member:hover {
+            transform: translateY(-5px);
+        }
+
+        .member-photo {
+            width: 100px;
+            height: 100px;
+            margin: 0 auto 1.5rem;
+            border-radius: 50%;
+            background: var(--accent-color);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .photo-placeholder {
+            color: white;
+            font-size: 2rem;
+            font-weight: bold;
+        }
+
+        .team-member h3 {
+            color: var(--accent-color);
+            margin-bottom: 0.5rem;
+            font-size: 1.4rem;
+        }
+
+        .role {
+            font-weight: bold;
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+        }
+
+        .values-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .value-item {
+            text-align: center;
+            padding: 1.5rem;
+        }
+
+        .value-item h3 {
+            color: var(--accent-color);
+            margin-bottom: 1rem;
+            font-size: 1.3rem;
+        }
+    </style>
+</body>
+</html>
