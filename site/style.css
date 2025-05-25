@@ -1,0 +1,208 @@
+/* style.css */
+:root {
+    --primary-color: #1e1e1e;
+    --accent-color: #e63246;
+    --light-gray: #F5F6F7;
+    --text-color: #1e1e1e;
+    --border-radius: 20px;
+    --section-padding: 2rem;
+}
+
+@font-face {
+    font-family: 'TT Rounds Neue';
+    src: url('fonts/TTRoundsNeue-Regular.woff2') format('woff2'),
+         url('fonts/TTRoundsNeue-Regular.woff') format('woff');
+    font-weight: 400;
+}
+
+@font-face {
+    font-family: 'TT Rounds Neue';
+    src: url('fonts/TTRoundsNeue-Bold.woff2') format('woff2'),
+         url('fonts/TTRoundsNeue-Bold.woff') format('woff');
+    font-weight: 700;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'TT Rounds Neue', Arial, sans-serif;
+}
+
+body {
+    line-height: 1.6;
+    color: var(--text-color);
+    background-color: #eeeeee;
+}
+
+/* Навигация */
+nav {
+    background: var(--primary-color);
+    padding: 1rem 0;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+nav .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+nav ul {
+    display: flex;
+    list-style: none;
+    gap: 2rem;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    transition: color 0.3s;
+    font-size: 1.1rem;
+}
+
+nav a:hover {
+    color: var(--accent-color);
+}
+
+/* Контейнер */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* Секции */
+main section {
+    margin: var(--section-padding) 0;
+    padding: var(--section-padding);
+    background: var(--light-gray);
+    border-radius: var(--border-radius);
+    box-shadow: 0 2px 15px rgba(0,0,0,0.1);
+}
+
+/* Герой-секция */
+.hero {
+    text-align: center;
+    padding: 8rem 10rem !important;
+
+    color: white;
+    margin: var(--section-padding) auto !important;
+}
+
+.hero h1 {
+    font-size: 2.8rem;
+    margin-bottom: 1.5rem;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+}
+
+.hero h3 {
+    font-weight: 400;
+    font-size: 1.8rem;
+}
+
+/* Блок аннотации */
+.annotation-wrapper {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 3rem;
+    align-items: center;
+}
+
+.annotation-text h2 {
+    font-size: 2.2rem;
+    margin-bottom: 1.5rem;
+    color: var(--accent-color);
+}
+
+.annotation-image {
+    overflow: hidden;
+    border-radius: var(--border-radius);
+    transition: transform 0.3s;
+}
+
+.annotation-image:hover {
+    transform: scale(1.02);
+}
+
+/* Преимущества */
+.benefits-section p {
+    font-size: 1.3rem;
+    margin: 1.5rem 0;
+    padding-left: 2rem;
+    position: relative;
+}
+
+.benefits-section p::before {
+    content: '✓';
+    color: var(--accent-color);
+    position: absolute;
+    left: 0;
+    font-size: 1.5rem;
+    top: 2px;
+}
+
+/* Адаптивность */
+@media (max-width: 768px) {
+    nav .container {
+        flex-direction: column;
+        gap: 1rem;
+    }
+
+    .annotation-wrapper {
+        grid-template-columns: 1fr;
+    }
+
+    .hero {
+        padding: 4rem 1rem !important;
+    }
+
+    .hero h1 {
+        font-size: 2rem;
+    }
+
+    .hero h3 {
+        font-size: 1.3rem;
+    }
+
+    main section {
+        margin: 1.5rem 0;
+        padding: 1.5rem;
+    }
+}
+
+/* Новые стили для квадратных блоков */
+.two-columns {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem;
+    margin: var(--section-padding) 0;
+}
+
+.square-block {
+    background: var(--light-gray);
+    border-radius: var(--border-radius);
+    padding: 2rem;
+    box-shadow: 0 2px 15px rgba(0,0,0,0.1);
+    /*aspect-ratio: 1/1;*/
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    /*text-align: center;*/
+}
+
+
+@media (max-width: 768px) {
+    .two-columns {
+        grid-template-columns: 1fr;
+    }
+    
+    .square-block {
+        aspect-ratio: unset;
+    }
+}
